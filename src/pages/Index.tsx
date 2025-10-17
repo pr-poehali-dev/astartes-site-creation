@@ -6,8 +6,31 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import { NavbarHero } from '@/components/ui/hero-with-video';
 
 const Index = () => {
+  const [showHero, setShowHero] = useState(true);
+
+  if (showHero) {
+    return (
+      <>
+        <NavbarHero
+          brandName="АСТАРТЕС"
+          heroTitle="Юридическая защита высшего уровня"
+          heroDescription="Профессиональное решение самых сложных правовых задач для бизнеса и частных клиентов"
+          emailPlaceholder="Ваш email"
+          backgroundImage="https://cdn.poehali.dev/projects/33d891af-b560-4b9a-8f5b-d9b478d2f3db/files/e3ce55eb-c27c-49ae-8898-feb5ba9eae09.jpg"
+          videoUrl="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+        />
+        <button 
+          onClick={() => setShowHero(false)}
+          className="fixed bottom-8 right-8 z-50 bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-lg hover:bg-primary/90 transition-all"
+        >
+          Вернуться к основному сайту
+        </button>
+      </>
+    );
+  }
   const [formData, setFormData] = useState({
     name: '',
     email: '',
